@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DM VPN</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(77, 145, 255, .16), transparent 30%),
+        radial-gradient(circle at 85% 85%, rgba(110, 220, 190, .14), transparent 30%),
+        linear-gradient(135deg, #f8fbff, #eef5ff);
+      color: #172033;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: min(100%, 540px);
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(255,255,255,.95);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: 0 24px 70px rgba(40, 70, 120, .14);
+      backdrop-filter: blur(14px);
+    }
+
+    .logo {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 18px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 28px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #2878ff, #55a8ff);
+      box-shadow: 0 12px 28px rgba(40,120,255,.28);
+    }
+
+    h1 {
+      text-align: center;
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: .5px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #718096;
+      margin: 10px 0 28px;
+      font-size: 14px;
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .info-box {
+      background: #f5f8fd;
+      border: 1px solid #e7edf7;
+      border-radius: 17px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .info-box span {
+      display: block;
+      color: #7a879b;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    .info-box strong {
+      font-size: 16px;
+      color: #1c2b43;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 9px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .link-wrap {
+      display: flex;
+      direction: ltr;
+      gap: 8px;
+      background: #f7f9fc;
+      border: 1px solid #dfe7f2;
+      border-radius: 16px;
+      padding: 7px;
+    }
+
+    input {
+      min-width: 0;
+      flex: 1;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      padding: 12px 10px;
+      color: #536176;
+      font-size: 12px;
+      direction: ltr;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(135deg, #2878ff, #4b9cff);
+      border-radius: 12px;
+      padding: 0 18px;
+      font-weight: bold;
+      transition: .2s;
+      box-shadow: 0 7px 18px rgba(40,120,255,.2);
+    }
+
+    button:hover { transform: translateY(-1px); }
+    button:active { transform: scale(.98); }
+
+    .note {
+      margin-top: 18px;
+      padding: 15px 17px;
+      background: #eef6ff;
+      border: 1px solid #dcecff;
+      border-radius: 16px;
+      color: #49617f;
+      font-size: 13px;
+      line-height: 1.9;
+      text-align: center;
+    }
+
+    .success {
+      display: none;
+      margin-top: 12px;
+      text-align: center;
+      color: #15926d;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 22px;
+      color: #a0aabc;
+      font-size: 11px;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 25px 18px; border-radius: 23px; }
+      h1 { font-size: 26px; }
+      .link-wrap { flex-direction: column; }
+      button { min-height: 46px; }
+      input { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="card">
+    <div class="logo">DM</div>
+
+    <h1>DM VPN</h1>
+    <div class="subtitle">اشتراک شما آماده استفاده است</div>
+
+    <div class="info">
+      <div class="info-box">
+        <span>حجم</span>
+        <strong>نامحدود</strong>
+      </div>
+      <div class="info-box">
+        <span>مدت زمان</span>
+        <strong>۱۰ روز</strong>
+      </div>
+    </div>
+
+    <label for="subscription">لینک ساب اشتراک</label>
+
+    <div class="link-wrap">
+      <input id="subscription" type="text" readonly
+        value="https://5dktcuajb2a1jxix7csnrmeucg.mahrademami.workers.dev/ke3IxxX0v7Opw0p/sub/raw?app=xray#%F0%9F%92%A6%20BPB%20Raw">
+      <button onclick="copySubscription()">کپی اشتراک</button>
+    </div>
+
+    <div id="success" class="success">✓ لینک اشتراک با موفقیت کپی شد</div>
+
+    <div class="note">
+      لینک را مستقیماً داخل برنامه وارد کنید.
+    </div>
+
+    <footer>DM VPN • اشتراک اختصاصی شما</footer>
+  </main>
+
+  <script>
+    async function copySubscription() {
+      const input = document.getElementById('subscription');
+      const success = document.getElementById('success');
+
+      try {
+        await navigator.clipboard.writeText(input.value);
+      } catch {
+        input.select();
+        document.execCommand('copy');
+      }
+
+      success.style.display = 'block';
+      setTimeout(() => success.style.display = 'none', 2500);
+    }
+  </script>
+
+</body>
+</html>
